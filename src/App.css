@@ -1,38 +1,121 @@
-.App {
-  text-align: center;
+/* src/App.css */
+
+/* Estilos globais */
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f0f0f0;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Container principal */
+.container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  width: 420px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Login e Saudação Containers */
+.login-container, .saudacao-container {
+  width: 100%;
+  text-align: center;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+}
+
+.login-container.minimized {
+  max-height: 50px;
+  overflow: hidden;
+  padding: 10px 0;
+}
+
+/* Inputs */
+input[type="text"], input[type="email"] {
+  width: 100%;
+  padding: 15px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-sizing: border-box;
+  font-size: 16px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input[type="text"]:focus, input[type="email"]:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.6);
+  outline: none;
+}
+
+/* Botão */
+button {
+  background-color: #007bff;
   color: white;
+  border: none;
+  padding: 15px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 10px 0;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background-color 0.3s, transform 0.3s;
 }
 
-.App-link {
-  color: #61dafb;
+button:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
 }
 
-@keyframes App-logo-spin {
+/* Títulos */
+h1 {
+  color: #333;
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+/* Texto */
+p {
+  color: #666;
+  font-size: 16px;
+  transition: color 0.3s;
+}
+
+/* Efeito de Hover */
+button:focus {
+  outline: none;
+}
+
+.login-container > *, .saudacao-container > * {
+  margin-bottom: 20px;
+}
+
+/* Animação de Entrada */
+@keyframes fadeIn {
   from {
-    transform: rotate(0deg);
+    opacity: 0;
+    transform: translateY(-20px);
   }
   to {
-    transform: rotate(360deg);
+    opacity: 1;
+    transform: translateY(0);
   }
+}
+
+/* Aplicar animação aos elementos */
+.login-container, .saudacao-container {
+  animation: fadeIn 0.5s ease forwards;
 }
